@@ -1,26 +1,5 @@
 import Image from "next/image";
-import { FooterItem } from "./footer-item";
 import Link from "next/link";
-
-const footerData = [
-  {
-    label: "CONTACT INFO",
-    items: [
-      <>
-        <h4 className="text-black">Phone</h4>
-        +91 00000 00000
-      </>,
-      <>
-        <h4 className="text-black">Email</h4>
-        example@mail.com
-      </>,
-    ],
-  },
-  {
-    label: "CUSTOMER CARE",
-    items: ["About us", "Contact", "My Account"],
-  },
-];
 
 export function Footer() {
   return (

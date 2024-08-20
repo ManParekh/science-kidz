@@ -4,10 +4,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { toast } from "sonner";
+import { LoaderCircle } from "lucide-react";
 
 import { sendUserMail } from "@/action/action";
 import { getErrorMessage } from "@/lib/errorMessageHandler";
-import { LoaderCircle } from "lucide-react";
 
 export const MailFormSchema = z.object({
   studentName: z.string().min(3, { message: "Student name is too short" }),

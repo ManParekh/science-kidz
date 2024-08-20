@@ -1,6 +1,6 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { revalidatePath } from "next/cache";
+// import { revalidatePath } from "next/cache";
 // import { hash } from "bcryptjs";
 
 import { dbConnect } from "@/service/dbConnect";

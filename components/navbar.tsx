@@ -1,10 +1,10 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/options";
-import { SignOut } from "./sign-out";
-
 import { MapPin } from "lucide-react";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 import Image from "next/image";
+
+import { authOptions } from "@/app/api/auth/[...nextauth]/options";
+import { SignOut } from "./sign-out";
 
 export async function OuterNavbar() {
   const session = await getServerSession(authOptions);
@@ -108,5 +108,3 @@ export function InnerNavbar() {
     </div>
   );
 }
-
-// hover:text-[#202020]
