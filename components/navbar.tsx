@@ -32,7 +32,7 @@ export async function OuterNavbar() {
                 LOGIN
               </Link>
             )}
-            <Link href={"/"} className="text-white hover:text-white">
+            <Link href={"/contact-us"} className="text-white hover:text-white">
               CONTACT US
             </Link>
           </div>

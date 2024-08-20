@@ -253,3 +253,70 @@ export async function DeleteGalleryImage(
     return { success: false, message: getErrorMessage(error) };
   }
 }
+
+export async function sendContactMail(formData: FormData): Promise<{
+  ok: boolean;
+  success: boolean;
+  status: number;
+  message: string;
+}> {
+  try {
+    const ip: string | null = headers().get("x-forwarded-for");
+
+    if (!ip) {
+      throw new Error("Unable to get IP address");
+    }
+
+    const { success: limitReached } = await rateLimiting.limit(ip);
+
+    if (limitReached) {
+      console.log("Limit reached", limitReached);
+      throw new Error("Limit Reached");
+    }
+
+    const firstName: string = formData.get("firstName") as string;
+    const lastName: string = formData.get("lastName") as string;
+    const phoneNumber: string = formData.get("phoneNumber") as string;
+    const email: string = formData.get("email") as string;
+    const message: string = formData.get("message") as string;
+
+    const mailOptions: IMailOptions = {
+      from: {
+        name: "Sciencekidz Inquiry",
+        address: "info@sciencekidz.in",
+      },
+      to: "man.parekh@gmail.com, info@sciencekidz.in",
+      subject: "Contact Us",
+      text: `New Mail from ${email}
+            Contact Us Details
+            Name: ${firstName} ${lastName}
+            Phone Number: ${phoneNumber}
+            Message: ${message}`,
+      html: `<div>
+              <h1>New Mail from ${email}</h1>
+              <br />
+              <h4>Student Details</h4>
+              <p>Name: ${firstName} ${lastName}</p>
+              <p>Phone Number: ${phoneNumber}</p>
+              <br />
+              <div>Message: ${message}</div>
+            </div>`,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    return {
+      ok: true,
+      success: true,
+      status: 200,
+      message: "Mail sent successfully",
+    };
+  } catch (error: unknown) {
+    return {
+      ok: false,
+      success: false,
+      status: 500,
+      message: getErrorMessage(error),
+    };
+  }
+}

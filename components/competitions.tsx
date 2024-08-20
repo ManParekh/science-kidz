@@ -113,7 +113,7 @@ export function Competitions() {
           {competitionsData.map((e, index) => (
             <div
               key={index}
-              className={`w-36 md:w-auto xl:w-auto h-16 md:h-auto xl:h-28 rounded-2xl cursor-pointer md:px-5 md:py-2 flex justify-center items-center hover:shadow-lg hover:bg-white duration-200 ${
+              className={`w-36 md:w-auto xl:w-auto h-16 md:h-auto xl:h-28 rounded-2xl cursor-pointer md:px-5 md:py-2 flex justify-center items-center hover:shadow-lg hover:bg-white duration-200 hover:scale-110 ${
                 activeIndex === index
                   ? "grayscale-0 bg-white shadow-lg border border-blue-900"
                   : "grayscale"
@@ -164,7 +164,7 @@ export function Competitions() {
                       className="hover:grayscale-0 object-contain object-center h-[100px] md:w-44 grayscale-0 duration-200"
                     />
                   )}
-                  <div className="text-center md:text-left">
+                  <div className="text-justify">
                     {activeIndex === -1
                       ? "Building a brighter future, one robot at a time!"
                       : contentList[activeIndex]?.description}
