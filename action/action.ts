@@ -44,18 +44,18 @@ export async function sendUserMail(
   formData: FormData
 ): Promise<{ ok: boolean; success: boolean; status: number; message: string }> {
   try {
-    const ip: string | null = headers().get("x-forwarded-for");
+    // const ip: string | null = headers().get("x-forwarded-for");
 
-    if (!ip) {
-      throw new Error("Unable to get IP address");
-    }
+    // if (!ip) {
+    //   throw new Error("Unable to get IP address");
+    // }
 
-    const { success: limitReached } = await rateLimiting.limit(ip);
+    // const { success: limitReached } = await rateLimiting.limit(ip);
 
-    if (limitReached) {
-      console.log("Limit reached", limitReached);
-      throw new Error("Limit Reached");
-    }
+    // if (limitReached) {
+    //   console.log("Limit reached", limitReached);
+    //   throw new Error("Limit Reached");
+    // }
 
     const studentName: string = formData.get("studentName") as string;
     const phoneNumber: string = formData.get("phoneNumber") as string;
@@ -261,18 +261,18 @@ export async function sendContactMail(formData: FormData): Promise<{
   message: string;
 }> {
   try {
-    const ip: string | null = headers().get("x-forwarded-for");
+    // const ip: string | null = headers().get("x-forwarded-for");
 
-    if (!ip) {
-      throw new Error("Unable to get IP address");
-    }
+    // if (!ip) {
+    //   throw new Error("Unable to get IP address");
+    // }
 
-    const { success: limitReached } = await rateLimiting.limit(ip);
+    // const { success: limitReached } = await rateLimiting.limit(ip);
 
-    if (limitReached) {
-      console.log("Limit reached", limitReached);
-      throw new Error("Limit Reached");
-    }
+    // if (limitReached) {
+    //   console.log("Limit reached", limitReached);
+    //   throw new Error("Limit Reached");
+    // }
 
     const firstName: string = formData.get("firstName") as string;
     const lastName: string = formData.get("lastName") as string;
@@ -303,8 +303,8 @@ export async function sendContactMail(formData: FormData): Promise<{
             </div>`,
     };
 
-    await transporter.sendMail(mailOptions);
-
+    const res = await transporter.sendMail(mailOptions);
+    console.log(res);
     return {
       ok: true,
       success: true,
