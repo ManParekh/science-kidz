@@ -25,7 +25,7 @@ export function CourseCard({
         <h3 className="text-xs md:text-base xl:text-[25px] text-red-500 font-semibold self-center text-center z-20">
           {title}
         </h3>
-        <p className="md:block mt-3 text-black text-base text-justify">
+        <p className="md:block mt-3 text-black text-base text-start sm:text-justify">
           {description}
         </p>
       </div>
