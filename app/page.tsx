@@ -265,7 +265,7 @@ export default async function Home() {
         <Competitions />
       </section>
 
-      <Gallery images={images} />
+      {images.length > 0 && <Gallery images={images} />}
     </div>
   );
 }

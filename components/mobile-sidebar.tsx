@@ -1,6 +1,7 @@
 "use client";
 
 import { CircleX, Menu } from "lucide-react";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -10,6 +11,8 @@ export const MobileNav = () => {
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
+
+  const { data: session } = useSession();
 
   return (
     <div className="absolute top-0 left-0 z-50 w-full">
@@ -53,6 +56,24 @@ export const MobileNav = () => {
             <Link href={"#gallery"} onClick={handleToggle}>
               <div className="block px-4 py-2 text-lg font-bold text-gray-800 hover:text-orange-500">
                 GALLERY
+              </div>
+            </Link>
+            <Link
+              href={session?.user.email ? "/upload" : "/admin-login"}
+              onClick={handleToggle}
+            >
+              <div className="block px-4 py-2 text-lg font-bold text-gray-800 hover:text-orange-500">
+                {session?.user.email ? "UPLOAD" : "LOGIN"}
+              </div>
+            </Link>
+            <Link href={"contact-us"} onClick={handleToggle}>
+              <div className="block px-4 py-2 text-lg font-bold text-gray-800 hover:text-orange-500">
+                CONTACT US
+              </div>
+            </Link>
+            <Link href={"about"} onClick={handleToggle}>
+              <div className="block px-4 py-2 text-lg font-bold text-gray-800 hover:text-orange-500">
+                ABOUT
               </div>
             </Link>
           </div>

@@ -22,10 +22,10 @@ export function CourseCard({
         />
       </div>
       <div className="py-5 divide-y-2 divide-transparent flex flex-col">
-        <h3 className="text-xs md:text-base xl:text-[25px] text-red-500 font-semibold self-center text-center z-20">
+        <h3 className="md:text-base xl:text-[25px] text-red-500 text-xl font-semibold self-center text-center z-20">
           {title}
         </h3>
-        <p className="md:block mt-3 text-black text-base text-start sm:text-justify">
+        <p className="md:block mt-3 text-black text-center sm:text-center">
           {description}
         </p>
       </div>

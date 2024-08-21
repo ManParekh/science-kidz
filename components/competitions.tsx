@@ -108,7 +108,7 @@ export function Competitions() {
           className="w-full h-full object-cover object-center shadow-2xl rounded-3xl"
         />
       </div>
-      <div className="flex flex-col lg:flex-row justify-center items-center w-full gap-10">
+      <div className="flex flex-col lg:flex-row justify-center items-center w-full gap-10 my-0 md:my-24">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4 mx-auto">
           {competitionsData.map((e, index) => (
             <div
@@ -126,7 +126,7 @@ export function Competitions() {
                 height={100}
                 width={120}
                 sizes="100vw"
-                className={`h-[100px] object-contain object-center md:w-44 hover:scale-110 duration-200 rounded-xl`}
+                className={`h-[100px] py-4 md:py-0 object-contain object-center md:w-44 hover:scale-110 duration-200 rounded-xl`}
               />
             </div>
           ))}
