@@ -1,3 +1,4 @@
+import { MapPinIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,6 +9,12 @@ export function Footer() {
         Copyright © 2024 ScienceKidz, All Rights Reserved
       </p>
       <ul className="flex justify-center items-center md:gap-5 gap-1 flex-col md:flex-row">
+        <Link href={"https://robocrate.in/"}>
+          <li className="md:hidden gap-2 justify-center items-center flex">
+            <MapPinIcon />
+            Robocrate - Online store
+          </li>
+        </Link>
         <li className="flex gap-2 justify-center items-center">
           <Image
             src={"/email-svgrepo-com.svg"}
@@ -35,6 +42,7 @@ export function Footer() {
               alt=""
               width={30}
               height={30}
+              aria-label="Youtube"
             />
           </Link>
         </li>
@@ -45,6 +53,7 @@ export function Footer() {
               alt=""
               width={30}
               height={30}
+              aria-label="Whatsapp"
             />
           </Link>
         </li>
@@ -55,6 +64,7 @@ export function Footer() {
               alt=""
               width={30}
               height={30}
+              aria-label="Instagram"
             />
           </Link>
         </li>
@@ -65,6 +75,7 @@ export function Footer() {
               alt=""
               width={30}
               height={30}
+              aria-label="Facebook"
             />
           </Link>
         </li>

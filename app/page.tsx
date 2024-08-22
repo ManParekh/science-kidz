@@ -140,7 +140,7 @@ const SectionHeader = ({
   id: string;
 }) => (
   <h1
-    className="text-transparent text-lg md:text-4xl bg-clip-text font-bold bg-gradient-to-br from-[#080b28] to-[#232fb6] px-3 py-2 rounded-2xl mb-5"
+    className="text-transparent text-lg md:text-4xl bg-clip-text font-extrabold bg-gradient-to-br from-[#080b28] to-[#232fb6] px-3 py-2 rounded-2xl mb-5"
     id={id}
   >
     {children}
@@ -228,10 +228,12 @@ export default async function Home() {
               className="absolute object-contain z-20"
               height={200}
               width={700}
+              objectFit="center"
+              objectPosition="center"
             />
           </div>
         </div>
-        <div className="md:min-w-96 w-[300px] rounded-[30px] border-white bg-gradient-to-br from-[#080b28] to-[#232fb6] text-black bg-blue-600 z-20 mb-10">
+        <div className="md:min-w-96 w-[300px] rounded-[30px] border-white bg-gradient-to-br from-[#080b28] to-[#232fb6] text-black bg-blue-600 z-20 mb-10 shadow-xl">
           <MailForm />
         </div>
       </section>

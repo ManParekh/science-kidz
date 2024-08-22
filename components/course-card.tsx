@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function CourseCard({
   img,
@@ -10,7 +11,7 @@ export function CourseCard({
   description: string;
 }) {
   return (
-    <div className="md:h-[500px] md:w-[400px] bg-white border-zinc-300 border md:border-zinc-300 rounded-2xl text-xs md:text-sm xl:text-base p-10 z-10">
+    <div className=" relative md:h-[550px] md:w-[400px] bg-white border-zinc-300 border md:border-zinc-300 rounded-2xl text-xs md:text-sm xl:text-base p-10 z-10 shadow-2xl">
       <div className="h-auto w-full cursor-pointer z-10 flex justify-center items-center">
         <Image
           src={img}
@@ -28,6 +29,11 @@ export function CourseCard({
         <p className="md:block mt-3 text-black text-center sm:text-center">
           {description}
         </p>
+      </div>
+      <div className="w-full absolute bottom-10 left-0 flex justify-center items-center">
+        <button className="sbmt-btn">
+          <Link href={"/contact-us"}>Book Demo</Link>
+        </button>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import { TypeAnimation } from "react-type-animation";
 
 export function TypeAnimationComponent() {
   return (
-    <div className="w-full mb-5 text-lg lg:text-3xl roboto-regular font-semibold">
+    <div className="w-full h-24 mb-5 text-lg lg:text-3xl roboto-regular font-semibold">
       <TypeAnimation
         sequence={[
           "From Play to Proficiency: Nurturing Young Innovators in Robotics and AI.",

@@ -44,19 +44,6 @@ export async function sendUserMail(
   formData: FormData
 ): Promise<{ ok: boolean; success: boolean; status: number; message: string }> {
   try {
-    // const ip: string | null = headers().get("x-forwarded-for");
-
-    // if (!ip) {
-    //   throw new Error("Unable to get IP address");
-    // }
-
-    // const { success: limitReached } = await rateLimiting.limit(ip);
-
-    // if (limitReached) {
-    //   console.log("Limit reached", limitReached);
-    //   throw new Error("Limit Reached");
-    // }
-
     const studentName: string = formData.get("studentName") as string;
     const phoneNumber: string = formData.get("phoneNumber") as string;
     const email: string = formData.get("email") as string;
@@ -66,10 +53,10 @@ export async function sendUserMail(
     const mailOptions: IMailOptions = {
       from: {
         name: "Sciencekidz Inquiry",
-        address: "info@sciencekidz.in",
+        address: "skdzsrs@gmail.com",
       },
-      to: "man.parekh@gmail.com, info@sciencekidz.in",
-      subject: "Send Email using Nodemailer | Testing ✔",
+      to: "man.parekh@gmail.com, manish@sciencekidz.in, info@sciencekidz.in",
+      subject: "Inquiry mail",
       text: `New Mail from ${email}
             Student Details
             Name: ${studentName}
@@ -88,8 +75,8 @@ export async function sendUserMail(
             </div>`,
     };
 
-    await transporter.sendMail(mailOptions);
-
+    const res = await transporter.sendMail(mailOptions);
+    console.log("RES", res);
     return {
       ok: true,
       success: true,
@@ -261,39 +248,27 @@ export async function sendContactMail(formData: FormData): Promise<{
   message: string;
 }> {
   try {
-    // const ip: string | null = headers().get("x-forwarded-for");
-
-    // if (!ip) {
-    //   throw new Error("Unable to get IP address");
-    // }
-
-    // const { success: limitReached } = await rateLimiting.limit(ip);
-
-    // if (limitReached) {
-    //   console.log("Limit reached", limitReached);
-    //   throw new Error("Limit Reached");
-    // }
-
     const firstName: string = formData.get("firstName") as string;
     const lastName: string = formData.get("lastName") as string;
     const phoneNumber: string = formData.get("phoneNumber") as string;
     const email: string = formData.get("email") as string;
+    const course: string = formData.get("course") as string;
     const message: string = formData.get("message") as string;
 
     const mailOptions: IMailOptions = {
       from: {
         name: "Sciencekidz Inquiry",
-        address: "info@sciencekidz.in",
+        address: "skdzsrs@gmail.com",
       },
-      to: "man.parekh@gmail.com, info@sciencekidz.in",
-      subject: "Contact Us",
-      text: `New Mail from ${email}
+      to: "man.parekh@gmail.com, manish@sciencekidz.in, info@sciencekidz.in",
+      subject: "Contact Mail",
+      text: `New Mail from ${email} for ${course}
             Contact Us Details
             Name: ${firstName} ${lastName}
             Phone Number: ${phoneNumber}
             Message: ${message}`,
       html: `<div>
-              <h1>New Mail from ${email}</h1>
+              <h1>New Mail from ${email} for ${course}</h1>
               <br />
               <h4>Student Details</h4>
               <p>Name: ${firstName} ${lastName}</p>

@@ -100,13 +100,12 @@ export function Competitions() {
   return (
     <div className="w-full">
       <div className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] rounded-md mb-10">
-        <Image
-          src={"/competitions.jpg"}
-          alt="Competitions"
-          width={1000}
-          height={1000}
-          className="w-full h-full object-cover object-center shadow-2xl rounded-3xl"
-        />
+        <iframe
+          src="https://www.youtube.com/embed/6e-5Uo1dRic?rel=0&autoplay=0&mute=1"
+          className="w-full h-full rounded-md"
+          loading="lazy"
+          allowFullScreen={false}
+        ></iframe>
       </div>
       <div className="flex flex-col lg:flex-row justify-center items-center w-full gap-10 my-0 md:my-24">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4 mx-auto">
@@ -125,6 +124,8 @@ export function Competitions() {
                 alt="MindFac"
                 height={100}
                 width={120}
+                objectFit="center"
+                objectPosition="center"
                 sizes="100vw"
                 className={`h-[100px] py-4 md:py-0 object-contain object-center md:w-44 hover:scale-110 duration-200 rounded-xl`}
               />
@@ -139,7 +140,7 @@ export function Competitions() {
           >
             <div className="card relative">
               <div className="card__face card__face--back absolute left-0 top-0">
-                <div className="min-h-40 md:min-h-[410px] w-full rounded-2xl text-xs md:text-sm xl:text-base bg-white shadow-md p-4 md:p-10 flex justify-center items-center flex-col gap-4">
+                <div className="min-h-40 md:min-h-[410px] w-full rounded-2xl text-xs md:text-sm xl:text-base bg-white shadow-md border-[0.2px] border-blue-800 p-4 md:p-10 flex justify-center items-center flex-col gap-4">
                   <h3 className="text-lg md:text-2xl font-medium">
                     {activeIndex === -1
                       ? "Science Kidz"

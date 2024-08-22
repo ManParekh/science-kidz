@@ -28,7 +28,7 @@ export default function RootLayout({
           <OuterNavbar />
           <MobileNav />
           <main
-            className="flex w-full flex-col items-center justify-center bg-[#fcf9f6]"
+            className="flex w-full flex-col items-center justify-center bg-[#ffffff]"
             style={{
               backgroundImage: `url("/bg-svg.svg")`,
               backgroundSize: "1920px 1080px",

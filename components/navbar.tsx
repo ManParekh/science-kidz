@@ -70,7 +70,7 @@ export function InnerNavbar() {
           <li>
             <Link href={"/"}>
               <div className="bg-gradient-to-br from-[#131631] to-[#000ead] rounded-[9px]">
-                <div className="md:px-2 md:py-1 lg:px-3 lg:py-2 hover:text-white bg-[#fcf9f6] hover:bg-transparent">
+                <div className="md:px-2 md:py-1 lg:px-3 lg:py-2 hover:text-white bg-white hover:bg-transparent">
                   HOME
                 </div>
               </div>
@@ -79,7 +79,7 @@ export function InnerNavbar() {
           <li>
             <Link href={"/#courses"}>
               <div className="bg-gradient-to-br from-[#131631] to-[#000ead] rounded-[9px]">
-                <div className="md:px-2 md:py-1 lg:px-3 lg:py-2 hover:text-white bg-[#fcf9f6] hover:bg-transparent">
+                <div className="md:px-2 md:py-1 lg:px-3 lg:py-2 hover:text-white bg-white hover:bg-transparent">
                   COURSES
                 </div>
               </div>
@@ -88,7 +88,7 @@ export function InnerNavbar() {
           <li>
             <Link href={"/#competitions"}>
               <div className="bg-gradient-to-br from-[#131631] to-[#000ead] rounded-[9px]">
-                <div className="md:px-2 md:py-1 lg:px-3 lg:py-2 hover:text-white bg-[#fcf9f6] hover:bg-transparent">
+                <div className="md:px-2 md:py-1 lg:px-3 lg:py-2 hover:text-white bg-white hover:bg-transparent">
                   COMPETITIONS
                 </div>
               </div>
@@ -97,7 +97,7 @@ export function InnerNavbar() {
           <li>
             <Link href={"/#gallery"}>
               <div className="bg-gradient-to-br from-[#131631] to-[#000ead] rounded-[9px]">
-                <div className="md:px-2 md:py-1 lg:px-3 lg:py-2 hover:text-white bg-[#fcf9f6] hover:bg-transparent">
+                <div className="md:px-2 md:py-1 lg:px-3 lg:py-2 hover:text-white bg-white hover:bg-transparent">
                   GALLERY
                 </div>
               </div>

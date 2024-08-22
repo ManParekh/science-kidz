@@ -8,6 +8,7 @@ import { z } from "zod";
 
 import { getErrorMessage } from "@/lib/errorMessageHandler";
 import { sendContactMail } from "@/action/action";
+import { useState } from "react";
 
 export const ContactFormSchema = z.object({
   firstName: z.string().min(3, { message: "Student name is too short" }),
@@ -23,6 +24,7 @@ export const ContactFormSchema = z.object({
 export type MailFormType = z.infer<typeof ContactFormSchema>;
 
 export function ContactForm() {
+  const [selectCourse, setSelectCourse] = useState("");
   const {
     register,
     handleSubmit,
@@ -47,6 +49,7 @@ export function ContactForm() {
       formData.set("phoneNumber", data.phoneNumber);
       formData.set("email", data.email);
       formData.set("grade", data.grade);
+      formData.set("course", selectCourse);
       formData.set("message", data.message);
 
       const res = await sendContactMail(formData);
@@ -130,6 +133,36 @@ export function ContactForm() {
             required
           />
         </div>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label htmlFor="course" className="text-white">
+          Course <span className="text-red-500">*</span>
+        </label>
+        <select
+          name="course"
+          id="course"
+          className="h-8 sm:h-9 md:h-10 rounded-md bg-white px-3"
+          onChange={(e) => setSelectCourse(e.target.value)}
+        >
+          <option value=""></option>
+          <option value="Builder">Builder</option>
+          <option value="Tinkerer">Tinkerer</option>
+          <option value="Jr_Techie">Jr.Techie</option>
+          <option value="Tech_Explorer">Tech Explorer</option>
+          <option value="Tech_Maker">Tech Maker</option>
+          <option value="Pi_Champ">Pi Champ</option>
+          <option value="Computing_with_Arduino">Computing with arduino</option>
+          <option value="Block_coding_with_Scratch">
+            Block Coding with Scratch
+          </option>
+          <option value="Python_Coding">Python Coding</option>
+          <option value="Mobile_app_Design">Mobile App Design</option>
+          <option value="Java_Fundamentals">Java Fundamentals</option>
+          <option value="Python_AI_with_Computer_Vision">
+            Python AI with Computer Vision
+          </option>
+        </select>
       </div>
 
       <div className="flex flex-col gap-2">
