@@ -35,6 +35,9 @@ export async function OuterNavbar() {
             <Link href={"/contact-us"} className="text-white hover:text-white">
               CONTACT US
             </Link>
+            <Link href={"/about"} className="text-white hover:text-white">
+              ABOUT
+            </Link>
           </div>
           <div className="flex items-center gap-x-2">
             <p className="text-white hover:text-white">Global Presence:</p>

@@ -2,6 +2,7 @@
 
 import { CircleX, Menu } from "lucide-react";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -17,7 +18,10 @@ export const MobileNav = () => {
   return (
     <div className="top-0 left-0 z-50 w-full fixed">
       <div className="flex items-center justify-between p-4 bg-transparent md:hidden">
-        <div className="h-10 w-10 absolute top-4 left-4 rounded-full bg-white flex justify-center items-center" onClick={handleToggle}>
+        <div
+          className="h-10 w-10 absolute top-4 left-4 rounded-full bg-white flex justify-center items-center"
+          onClick={handleToggle}
+        >
           {isOpen ? (
             <CircleX className="text-black cursor-pointer" />
           ) : (
@@ -38,6 +42,13 @@ export const MobileNav = () => {
       >
         <nav className="flex flex-col p-4">
           <div className="text-white flex gap-1 flex-col">
+            <Image
+              src={"/science-kidz.png"}
+              width={200}
+              height={200}
+              alt="Science Kidz"
+              className="self-center mb-10"
+            />
             <Link href={"/"} onClick={handleToggle}>
               <div className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                 HOME
@@ -76,6 +87,11 @@ export const MobileNav = () => {
                 ABOUT
               </div>
             </Link>
+            {session?.user.email && (
+              <button className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                SIGN OUT
+              </button>
+            )}
           </div>
         </nav>
       </div>

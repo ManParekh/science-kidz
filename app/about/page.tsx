@@ -8,7 +8,7 @@ export default function Page() {
       </h3>
 
       <div className="w-full bg-white rounded-3xl p-6 md:p-10 shadow-xl text-[#171717] max-w-5xl">
-        <p className="text-base md:text-lg">
+        <p className="text-sm md:text-base">
           <span className="font-bold">Science Kidz</span> is a company with an
           active maker community that provides a platform to foster creativity
           and innovation in the fields of electronics, robotics, and physical
