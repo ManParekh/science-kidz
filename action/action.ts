@@ -50,6 +50,21 @@ export async function sendUserMail(
     const grade: string = formData.get("grade") as string;
     const message: string = formData.get("message") as string;
 
+    const userMail = {
+      from: {
+        name: "Sciencekidz Inquiry User Mail",
+        address: "skdzsrs@gmail.com",
+      },
+      to: `${email}`,
+      subject: "Inquiry mail response",
+      text: `Thank you for inquiry we will contact you soon.`,
+      html: `<div>
+              Thank you for inquiry we will contact you soon.
+            </div>`,
+    };
+
+    await transporter.sendMail(userMail);
+
     const mailOptions: IMailOptions = {
       from: {
         name: "Sciencekidz Inquiry",
