@@ -2,7 +2,6 @@
 
 import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";
-import { headers } from "next/headers";
 
 import { authOptions } from "@/app/api/auth/[...nextauth]/options";
 import { getBlurImage } from "@/lib/blur-image";
@@ -12,7 +11,6 @@ import { IUser, UserModel } from "@/models/user.model";
 import { DeleteImage, UploadImage } from "@/service/cloudinary";
 import { dbConnect } from "@/service/dbConnect";
 import { transporter } from "@/service/nodemailer";
-import { rateLimiting } from "@/service/upstash";
 
 interface IMailOptions {
   from: {

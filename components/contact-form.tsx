@@ -162,6 +162,7 @@ export function ContactForm() {
           <option value="Python_AI_with_Computer_Vision">
             Python AI with Computer Vision
           </option>
+          <option value="Robotics_Maker">Robotics Maker</option>
         </select>
       </div>
 

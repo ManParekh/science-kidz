@@ -97,6 +97,12 @@ const COURSES_DATA = [
     description:
       "Explore fundamentals, turtle graphics, OpenCV, color detection, and face detection.",
   },
+  {
+    img: "/Robotics-Maker.png",
+    title: "Robotics Maker",
+    description:
+      "Explore Automation with advanced sensors, applications of analog sensors, display devices and app designing.",
+  },
 ];
 
 const Gallery = ({ images }: { images: ImageType[] }) => {

@@ -19,7 +19,7 @@ export function CourseCard({
           sizes="100vw"
           width={300}
           height={250}
-          className="h-full w-[90%] object-cover object-center rounded-2xl transform hover:scale-110 duration-500 z-0 border border-slate-500"
+          className="h-full w-[90%] object-cover object-center rounded-2xl transform hover:scale-110 duration-500 z-0 drop-shadow-lg"
         />
       </div>
       <div className="py-5 divide-y-2 divide-transparent flex flex-col">
