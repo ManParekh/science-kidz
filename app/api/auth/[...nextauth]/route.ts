@@ -1,3 +1,5 @@
+export const runtime = "node.js";
+
 import NextAuth from "next-auth/next";
 
 import { authOptions } from "./options";
