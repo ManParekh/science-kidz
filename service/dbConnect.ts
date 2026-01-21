@@ -1,22 +1,26 @@
 import mongoose from "mongoose";
 
-/**
- * Function to connect to the MongoDB database using Mongoose
- * Ensures a single connection instance is used throughout the application
- */
+const ATLAS_DB_URL = process.env.ATLAS_DB_URL;
+
+if (!ATLAS_DB_URL) {
+  throw new Error("ATLAS_DB_URL is not defined");
+}
+
+let cached = (global as any).mongoose;
+
+if (!cached) {
+  cached = (global as any).mongoose = { conn: null, promise: null };
+}
+
 export async function dbConnect() {
-  try {
-    if (mongoose.connections && mongoose.connections[0].readyState) {
-      console.log("Already connected to database");
-      return;
-    }
+  if (cached.conn) return cached.conn;
 
-    const { connection } = await mongoose.connect(process.env.ATLAS_DB_URL!, {
-      dbName: "sciencekidz",
+  if (!cached.promise) {
+    cached.promise = mongoose.connect(ATLAS_DB_URL).then((mongoose) => {
+      return mongoose;
     });
-
-    console.log("Connected to database successfully", connection.host);
-  } catch (error: unknown) {
-    console.log("Database connection failed", error);
   }
+
+  cached.conn = await cached.promise;
+  return cached.conn;
 }
